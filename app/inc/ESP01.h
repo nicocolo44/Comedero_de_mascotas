@@ -4,12 +4,12 @@
 #include "sapi.h"
 
 /* Inicia el ESP8266 en modo Access Point */
-bool_t esp8266StartAccessPoint(char *apName, char *apPassword);
+bool_t esp8266StartAccessPoint();
 
 /* Lee si hay solicitudes HTTP en el servidor */
 bool_t esp8266ReadHttpServer(void);
 
-/* Envía una página de configuración de red WiFi */
+/* Envï¿½a una pï¿½gina de configuraciï¿½n de red WiFi */
 bool_t esp8266SendConfigPage(void);
 
 /* Procesa una solicitud POST con las credenciales WiFi */
