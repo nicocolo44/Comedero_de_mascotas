@@ -9,7 +9,7 @@
 #include "app.h"         // <= Su propia cabecera (opcional)
 #include "sapi.h"        // <= Biblioteca sAPI
 #include "chip.h"
-#include "ESP01.h"
+#include "sapi_esp8266.h"
 
 // FUNCION PRINCIPAL, PUNTO DE ENTRADA AL PROGRAMA LUEGO DE ENCENDIDO O RESET.
 int main( void )
@@ -25,7 +25,7 @@ int main( void )
    // Crear variable del tipo tick_t para contar tiempo
    tick_t timeCount   = 0;
    Chip_EEPROM_Init(LPC_EEPROM);
-   esp8266StartAccessPoint();
+   esp8266InitHttpServer("a", "a");
    // ---------- REPETIR POR SIEMPRE --------------------------
    while( TRUE ) {
       

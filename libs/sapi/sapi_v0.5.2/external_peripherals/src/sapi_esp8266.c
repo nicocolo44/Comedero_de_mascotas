@@ -49,7 +49,7 @@
 #define ESP8266_PAUSE 5000
 #define ESP8266_WAIT 1000
 
-#define MAX_COMMAND_LENGHT 40
+#define MAX_COMMAND_LENGHT 44
 #define MAX_HTTP_WEB_LENGHT 1500
 
 typedef enum Esp8266State
@@ -95,7 +95,11 @@ typedef enum Esp8266State
    ESP_WAIT_CIFSR,
    ESP_LOAD_IP,
    ESP_SEND_CWMODE,
-   ESP_WAIT_CWMODE
+   ESP_WAIT_CWMODE,
+   ESP_SEND_CWSAP,
+   ESP_WAIT_CWSAP,
+   ESP_SEND_CIPAP,
+   ESP_WAIT_CIPAP
 } Esp8266Status_t;
 
 /*==================[definiciones de datos internos]=========================*/
@@ -143,7 +147,11 @@ static const char Esp8266StatusToString[][MAX_COMMAND_LENGHT] = {
     "ESP_WAIT_CIFSR",
     "ESP_LOAD_IP",
     "ESP_SEND_CWMODE",
-    "ESP_WAIT_CWMODE"};
+    "ESP_WAIT_CWMODE",
+    "ESP_SEND_CWSAP",
+    "ESP_WAIT_CWSAP",
+    "ESP_SEND_CIPAP",
+    "ESP_WAIT_CIPAP"};
 // Respuestas del ESP8266
 static const char Response_OK[] = "OK";
 static const char Response_CWJAP_OK[] = "+CWJAP:";
@@ -348,7 +356,7 @@ static void ExcecuteHttpServerFsm(void)
       if (IsWaitedResponse())
       {
          delayConfig(&Esp8266Delay, ESP8266_PAUSE);
-         SetEsp8622Status(ESP_SEND_CWJAP_CONS);
+         SetEsp8622Status(ESP_SEND_CWSAP);
       }
       // Si no recibe OK vuelve a enviar AT
       if (delayRead(&Esp8266Delay))
@@ -357,6 +365,40 @@ static void ExcecuteHttpServerFsm(void)
          SetEsp8622Status(ESP_SEND_CWMODE);
       }
       break;
+
+   case ESP_SEND_CWSAP:
+      if (delayRead(&Esp8266Delay)) {
+         stdioPrintf(ESP8266_UART, "AT+CWSAP=\"ComederoPerros\",\"NicoyAx\",5,3\r\n");  // Configura SSID, password, canal y seguridad
+         Esp8266ResponseToWait = Response_OK;
+         delayConfig(&Esp8266Delay, ESP8266_TMO);
+         SetEsp8622Status(ESP_WAIT_CWSAP);
+      }
+      break;
+
+   case ESP_WAIT_CWSAP:
+      if (IsWaitedResponse()) {
+         delayConfig(&Esp8266Delay, ESP8266_PAUSE);
+         SetEsp8622Status(ESP_SEND_CIPAP);  // Continúa con la configuración normal del servidor
+      }
+      break;
+   case ESP_SEND_CIPAP:
+      if (delayRead(&Esp8266Delay)) {
+         stdioPrintf(ESP8266_UART, "AT+CIPAP=\"192.168.4.1\"\r\n");  // Configura IP fija
+         Esp8266ResponseToWait = Response_OK;
+         delayConfig(&Esp8266Delay, ESP8266_TMO);
+         SetEsp8622Status(ESP_WAIT_CIPAP);
+      }
+      break;
+
+   case ESP_WAIT_CIPAP:
+      if (IsWaitedResponse()) {
+         delayConfig(&Esp8266Delay, ESP8266_PAUSE);
+         SetEsp8622Status(ESP_CIPMUX_SEND);  // Continúa con la configuración normal del servidor
+      }else{
+
+      }
+      break;
+   
 
    case ESP_SEND_CWJAP_CONS:
       if (delayRead(&Esp8266Delay))
@@ -506,7 +548,7 @@ static void ExcecuteHttpServerFsm(void)
       if (IsWaitedResponse())
       {
          delayConfig(&Esp8266Delay, ESP8266_PAUSE);
-         SetEsp8622Status(ESP_SEND_CIFSR);
+         SetEsp8622Status(ESP_SEND_CIFSR); //NO NECESITARÍA PEDIR LA IP
       }
       if (delayRead(&Esp8266Delay))
       {
@@ -687,7 +729,6 @@ static void ExcecuteHttpServerFsm(void)
          SetEsp8622Status(ESP_SEND_CIPSTATUS);
       }
       break;
-   }
 }
 
 /**
