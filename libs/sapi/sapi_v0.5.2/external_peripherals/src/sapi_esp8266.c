@@ -729,6 +729,7 @@ static void ExcecuteHttpServerFsm(void)
          SetEsp8622Status(ESP_SEND_CIPSTATUS);
       }
       break;
+   }
 }
 
 /**
