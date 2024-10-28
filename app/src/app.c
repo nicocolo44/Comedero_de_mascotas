@@ -21,11 +21,12 @@ int main( void )
    boardConfig();
    // Crear varias variables del tipo booleano
    bool_t buttonValue = OFF;
+   /*
    lcdInit(16,2,5,8);
    lcdGoToXY(0,0);
    int x=0;
    lcdSendStringRaw("Cargando...     ");
-   // ---------- REPETIR POR SIEMPRE --------------------------
+   // ---------- LCD --------------------------
    while( TRUE ) {
       if(x < 16){
          lcdGoToXY(x,1);
@@ -41,9 +42,60 @@ int main( void )
       }
       delay(500);
    }
-
-   // NO DEBE LLEGAR NUNCA AQUI, debido a que a este programa se ejecuta
-   // directamenteno sobre un microcontroladore y no es llamado por ningun
-   // Sistema Operativo, como en el caso de un programa para PC.
+   */
+   //----------------------------- ENCODER--------------------------
+   /*
+   gpioConfig(TX_EN,GPIO_INPUT);
+   gpioConfig(GPIO2,GPIO_INPUT);
+   gpioConfig(GPIO4,GPIO_INPUT);
+   uint8_t ultEst=gpioRead(TX_EN);
+   uint8_t est;
+   while( TRUE ) {
+      est= gpioRead(TX_EN);
+      if(ultEst != est){
+         if(est != gpioRead(GPIO2)){
+            gpioWrite(LED1,1);
+            gpioWrtie(LED2,0);
+         }
+         else{
+            gpioWrite(LED1,0);
+            gpioWrtie(LED2,1);
+         }
+      }
+      ultEst=est;
+      delay(10);
+   }
+   */
+  
+   // ---------- ENCODER + LCD--------------------------
+   /*
+   gpioConfig(TX_EN,GPIO_INPUT);
+   gpioConfig(GPIO2,GPIO_INPUT);
+   gpioConfig(GPIO4,GPIO_INPUT);
+   lcdInit(16,2,5,8);
+   lcdGoToXY(0,0);
+   lcdClear();
+   uint8_t d=48;
+   uint8_t ultEst=gpioRead(TX_EN);
+   uint8_t est;
+   while( TRUE ) {
+      est= gpioRead(TX_EN);
+      if(ultEst != est){
+         if(est != gpioRead(GPIO2)){
+            d++;
+            lcdData(d);
+         }
+         else{
+            if(d>1)
+               d--;
+            lcdData(d);
+         }
+         lcdClear();
+      }
+      ultEst=est;
+      delay(10);
+   }
+   */
+   
    return 0;
 }
