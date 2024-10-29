@@ -25,7 +25,7 @@ int main( void )
    // Crear variable del tipo tick_t para contar tiempo
    tick_t timeCount   = 0;
    Chip_EEPROM_Init(LPC_EEPROM);
-   esp8266InitHttpServer("a", "a");
+
    // ---------- REPETIR POR SIEMPRE --------------------------
    while( TRUE ) {
       
