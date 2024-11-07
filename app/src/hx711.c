@@ -1,6 +1,6 @@
 #include "sapi.h"
 //#include <stdint.h>
-//#include <stdbool.h>
+#include <stdbool.h>
 //#include <gpio.h> // Asegúrate de incluir la biblioteca de GPIO que usas en la EDU-CIAA
 //no se bien que son esas librerías, las agregó chat
 
@@ -23,23 +23,24 @@ int8_t HX711_Read(int32_t* data) {
     *data = 0;
 
     // Asegurarse de que el HX711 está listo
-    if(!gpioRead(HX711_DOUT_PIN)){
+    if(gpioRead(HX711_DOUT_PIN)){
         return FALSE;
     }
 
     // Leer 24 bits de datos
     for (int i = 0; i < 24; i++) {
         gpioWrite(HX711_SCK_PIN, true); // Genera un pulso alto en SCK
-         //aca tendr�a que haber el delay de microsegundos pero no conozco la funcion
-         //delay_us(0.2);
+        delayUs(1); 
         *data = (*data << 1) | gpioRead(HX711_DOUT_PIN); // Leer el bit de DOUT
         gpioWrite(HX711_SCK_PIN, false); // Pulso bajo en SCK
-       //delay_us(0.2);
+        delayUs(1); 
     }
 
     // Recibir el pulso extra para seleccionar el canal y ganancia
     gpioWrite(HX711_SCK_PIN, true);
+    delayUs(1); 
     gpioWrite(HX711_SCK_PIN, false);
+    delayUs(1); 
 
     // Asegurarse de que el valor sea signo extendido de 24 a 32 bits
     if (*data & 0x800000) {

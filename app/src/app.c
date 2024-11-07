@@ -19,17 +19,20 @@ int main( void )
    // Inicializar y configurar la plataforma
    boardConfig();
 
-   // Crear varias variables del tipo booleano
-   bool_t buttonValue = OFF;
-   bool_t ledValue    = OFF;
-   // Crear variable del tipo tick_t para contar tiempo
-   tick_t timeCount   = 0;
-   Chip_EEPROM_Init(LPC_EEPROM);
-
+   HX711_Init(T_FIL1, T_COL2);
+   printf("Comenzando lecturas");
+   int32_t data; // Variable para almacenar el dato leído
+   int8_t leyo;
+   gpioWrite(LED1, HIGH);
    // ---------- REPETIR POR SIEMPRE --------------------------
    while( TRUE ) {
-      
-      
+      leyo = HX711_Read(&data);
+      if (leyo) {
+         printf("Valor leído: %ld\n", data);
+      }
+      printf("Leyo: %hhd\n", leyo); 
+      gpioToggle(LED1);
+      delay(1000);
       
    }
 
