@@ -8,10 +8,7 @@
 
 #include "app.h"         // <= Su propia cabecera (opcional)
 #include "sapi.h"        // <= Biblioteca sAPI
-#include "chip.h"
-#include "sapi_esp8266.h"
-#include "sapi_lcd.h"
-
+#include "eeprom.h"
 // FUNCION PRINCIPAL, PUNTO DE ENTRADA AL PROGRAMA LUEGO DE ENCENDIDO O RESET.
 int main( void )
 {
@@ -19,14 +16,39 @@ int main( void )
 
    // Inicializar y configurar la plataforma
    boardConfig();
-   // Crear varias variables del tipo booleano
-   bool_t buttonValue = OFF;
+   
+   //----------------------EEPROM----------------------------
+   /*
+   uartConfig(UART_USB,115200);
+   Board_EEPROM_init();
+
+   uint8_t dataByte = 'X';
+   
+   uartWriteByte(UART_USB,dataByte);
+   dataByte=Board_EEPROM_readByte(0x00);
+   
+   uartWriteByte(UART_USB,dataByte);
+   
+   Board_EEPROM_writeByte(0x00, 'g');
+   
+   dataByte = Board_EEPROM_readByte(0x00);
+   uartWriteByte(UART_USB,dataByte);
+
+   // ---------- REPETIR POR SIEMPRE --------------------------
+   while( TRUE ) {
+      delay( 100 );
+      
+      
+   }
+   */
+   
+   // ---------- LCD --------------------------
    /*
    lcdInit(16,2,5,8);
    lcdGoToXY(0,0);
    int x=0;
    lcdSendStringRaw("Cargando...     ");
-   // ---------- LCD --------------------------
+   
    while( TRUE ) {
       if(x < 16){
          lcdGoToXY(x,1);

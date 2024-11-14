@@ -35,12 +35,11 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+#include "cmsis.h"
 /** @defgroup EEPROM_18XX_43XX CHIP: LPC18xx/43xx EEPROM driver
  * @ingroup CHIP_18XX_43XX_Drivers
  * @{
  */
-
 /* FIX ME: Move to chip.h */
 /** EEPROM start address */
 #define EEPROM_START                    (0x20040000)
