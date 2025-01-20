@@ -8,6 +8,7 @@
 
 #include "app.h"         // <= Su propia cabecera (opcional)
 #include "sapi.h"        // <= Biblioteca sAPI
+#include "encoder.h"
 #include "eeprom.h"
 // FUNCION PRINCIPAL, PUNTO DE ENTRADA AL PROGRAMA LUEGO DE ENCENDIDO O RESET.
 int main( void )
@@ -93,37 +94,31 @@ int main( void )
   
    // ---------- ENCODER + LCD--------------------------
    
-   gpioConfig(ENET_TXEN,GPIO_INPUT);
-   gpioConfig(GPIO2,GPIO_INPUT);
-   gpioConfig(GPIO4,GPIO_INPUT);
+   encoderInit(ENET_TXEN,GPIO2,GPIO4,3);
    lcdInit(16,2,5,8);
    lcdGoToXY(1,1);
    lcdClear();
-   uint8_t d=48;
-   uint8_t ultEst=gpioRead(ENET_TXEN);
-   uint8_t est;
-   uint8_t boton=1;
-   
+   uint8_t sentido=0;
+   uint8_t boton=0;
    while( TRUE ) {
-      est= gpioRead(ENET_TXEN);
-      if(ultEst != est){
-         if(est != gpioRead(GPIO2)){
-            d++;
-            lcdData(d);
-         }
-         else{
-            if(d>1)
-               d--;
-            lcdData(d);
-         }
-      }
-      if(boton==gpioRead(GPIO4)){
+      
+      sentido=encoderRead(&boton);
+      if(sentido==1){
          gpioWrite(LED1,HIGH);
+         gpioWrite(LED2,LOW);
+         gpioWrite(LED3,LOW);
       }
-      else
+      else if(sentido==2){
+         gpioWrite(LED2,HIGH);
          gpioWrite(LED1,LOW);
-      ultEst=est;
-      delay(10);
+         gpioWrite(LED3,LOW);
+      }
+      if(boton){
+         gpioWrite(LED3,HIGH);
+      }else
+      gpioWrite(LED3,LOW);
+      
+      delay(1);
    }
    
    
