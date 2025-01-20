@@ -41,15 +41,16 @@ int main( void )
       
    }
    */
-   
-   // ---------- LCD --------------------------
    /*
-   lcdInit(16,2,5,8);
-   lcdGoToXY(0,0);
+   // ---------- LCD --------------------------
+   lcdInit(16,2,5,8);;
+   lcdGoToXY(1,1);
    int x=0;
-   lcdSendStringRaw("Cargando...     ");
-   
+   delay(100);
+   lcdSendStringRaw("Tommy putooo");
+   //lcdSendStringRaw("Cargando...    ");
    while( TRUE ) {
+      
       if(x < 16){
          lcdGoToXY(x,1);
          lcdSendStringRaw("+");
@@ -63,8 +64,9 @@ int main( void )
          lcdSendStringRaw("................");
       }
       delay(500);
-   }
-   */
+      
+   }*/
+   
    //----------------------------- ENCODER--------------------------
    /*
    gpioConfig(TX_EN,GPIO_INPUT);
@@ -90,18 +92,20 @@ int main( void )
    */
   
    // ---------- ENCODER + LCD--------------------------
-   /*
-   gpioConfig(TX_EN,GPIO_INPUT);
+   
+   gpioConfig(ENET_TXEN,GPIO_INPUT);
    gpioConfig(GPIO2,GPIO_INPUT);
    gpioConfig(GPIO4,GPIO_INPUT);
    lcdInit(16,2,5,8);
-   lcdGoToXY(0,0);
+   lcdGoToXY(1,1);
    lcdClear();
    uint8_t d=48;
-   uint8_t ultEst=gpioRead(TX_EN);
+   uint8_t ultEst=gpioRead(ENET_TXEN);
    uint8_t est;
+   uint8_t boton=1;
+   
    while( TRUE ) {
-      est= gpioRead(TX_EN);
+      est= gpioRead(ENET_TXEN);
       if(ultEst != est){
          if(est != gpioRead(GPIO2)){
             d++;
@@ -112,12 +116,16 @@ int main( void )
                d--;
             lcdData(d);
          }
-         lcdClear();
       }
+      if(boton==gpioRead(GPIO4)){
+         gpioWrite(LED1,HIGH);
+      }
+      else
+         gpioWrite(LED1,LOW);
       ultEst=est;
       delay(10);
    }
-   */
+   
    
    return 0;
 }
