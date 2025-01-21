@@ -16,7 +16,7 @@ uint8_t botonRead(){
    if(++tiempo >= 20){
        estadoAct = gpioRead(BOTON_PIN);
        if(cambiandoEstado && estadoAct == estadoAnt){
-           estadoBoton = estadoAct;
+           estadoBoton = !estadoAct;
            cambiandoEstado = 0;
        }
     }

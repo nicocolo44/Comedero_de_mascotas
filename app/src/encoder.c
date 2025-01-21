@@ -41,7 +41,7 @@ uint8_t encoderRead(uint8_t* estadoBoton){
    if(++tiempo >= 20){
        estadoAct = gpioRead(SW_PIN);
        if(cambiandoEstado && estadoAct == estadoAnt){
-           *estadoBoton = estadoAct;
+           *estadoBoton = !estadoAct;
            cambiandoEstado = 0;
        }
     }
