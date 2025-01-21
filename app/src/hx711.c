@@ -1,8 +1,4 @@
-#include "sapi.h"
-//#include <stdint.h>
-#include <stdbool.h>
-//#include <gpio.h> // Asegúrate de incluir la biblioteca de GPIO que usas en la EDU-CIAA
-//no se bien que son esas librerías, las agregó chat
+#include "hx711.h"
 
 static uint8_t HX711_SCK_PIN;
 static uint8_t HX711_DOUT_PIN;

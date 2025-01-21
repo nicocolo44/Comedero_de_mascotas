@@ -2,6 +2,7 @@
 #define HX711_H
 
 #include <stdint.h>
+#include "sapi.h"
 #include <stdbool.h>
 
 // Inicializa el HX711 con los pines SCK y DOUT
