@@ -8,6 +8,8 @@
 
 #include "app.h"         // <= Su propia cabecera (opcional)
 #include "sapi.h"        // <= Biblioteca sAPI
+#include "boton.h"
+#include "mef.h"
 #include "encoder.h"
 #include "eeprom.h"
 // FUNCION PRINCIPAL, PUNTO DE ENTRADA AL PROGRAMA LUEGO DE ENCENDIDO O RESET.
@@ -17,27 +19,17 @@ int main( void )
 
    // Inicializar y configurar la plataforma
    boardConfig();
-   
    encoderInit(ENET_TXEN,GPIO2,GPIO4,3);
+   mefInit();
+   mefUpdate(0,0,0);
+   //botonInit(ENET_TXEN,20);
    uint8_t sentido=0;
    uint8_t boton=0;
    while( TRUE ) {
-      
       sentido=encoderRead(&boton);
-      if(sentido==1){
-         gpioWrite(LED1,HIGH);
-         gpioWrite(LED2,LOW);
-         gpioWrite(LED3,LOW);
+      if(sentido!=0 || boton !=0){
+         mefUpdate(sentido,boton,0);
       }
-      else if(sentido==2){
-         gpioWrite(LED2,HIGH);
-         gpioWrite(LED1,LOW);
-         gpioWrite(LED3,LOW);
-      }
-      if(boton){
-         gpioWrite(LED3,HIGH);
-      }else
-      gpioWrite(LED3,LOW);
       
       delay(1);
    }
