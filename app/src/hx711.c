@@ -6,8 +6,8 @@
 
 static uint8_t HX711_SCK_PIN;
 static uint8_t HX711_DOUT_PIN;
-static uint32_t valor_base;
-static uint32_t factor_de_conversion;
+static int32_t valor_base;
+static int32_t factor_de_conversion;
 
 
 // Función para inicializar los pines del HX711
@@ -51,6 +51,24 @@ int8_t HX711_Read(int32_t* data) {
 }
 
 
-float HX711_GetWeight(uint32_t lectura) {
+float HX711_GetWeight(int32_t lectura) {
    return (float)(lectura - valor_base) / factor_de_conversion;
+}
+
+void HX711_Tare(uint8_t muestras) {
+    int32_t sumatoria = 0;
+    int32_t lectura;
+    for (int i = 0; i < muestras; i++) {
+        HX711_Read(&lectura);
+        sumatoria += lectura;
+    }
+    valor_base = sumatoria / muestras;
+}
+
+int32_t HX711_Calibrate(int32_t peso_conocido) {
+    int32_t lectura;
+    HX711_Read(&lectura);
+    factor_de_conversion = lectura - valor_base;
+    factor_de_conversion /= peso_conocido;
+    return factor_de_conversion;
 }
