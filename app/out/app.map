@@ -380,6 +380,257 @@ Discarded input sections
  .debug_macro   0x00000000       0x18 app/out/app/src/app.o
  .debug_macro   0x00000000       0x22 app/out/app/src/app.o
  .debug_macro   0x00000000       0x40 app/out/app/src/app.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .group         0x00000000        0xc app/out/app/src/boton.o
+ .text          0x00000000        0x0 app/out/app/src/boton.o
+ .data          0x00000000        0x0 app/out/app/src/boton.o
+ .bss           0x00000000        0x0 app/out/app/src/boton.o
+ .text.botonInit
+                0x00000000       0x1c app/out/app/src/boton.o
+ .text.botonRead
+                0x00000000       0x74 app/out/app/src/boton.o
+ .bss.BOTON_PIN
+                0x00000000        0x1 app/out/app/src/boton.o
+ .bss.cambiandoEstado.13379
+                0x00000000        0x1 app/out/app/src/boton.o
+ .bss.estadoAct.13380
+                0x00000000        0x1 app/out/app/src/boton.o
+ .bss.estadoAnt.13378
+                0x00000000        0x1 app/out/app/src/boton.o
+ .bss.tiempo    0x00000000        0x1 app/out/app/src/boton.o
+ .debug_info    0x00000000     0x25a0 app/out/app/src/boton.o
+ .debug_abbrev  0x00000000      0x318 app/out/app/src/boton.o
+ .debug_loc     0x00000000       0xa7 app/out/app/src/boton.o
+ .debug_aranges
+                0x00000000       0x28 app/out/app/src/boton.o
+ .debug_ranges  0x00000000       0x18 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x668 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0xa9c app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x22 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x56 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x51 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0xef app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x6a app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x1df app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x22 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x73 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x28 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x3b app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x2d app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x42 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0xd39 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x2c3 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x112 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x11 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x2a app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x16 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x2e6 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x82 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x13d app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x198 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x34 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x58 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x236 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x572 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x16 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x18a app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x88 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x1b9 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x1da app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x40 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x1c app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x2e app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x2e app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x22 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x201 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0xe0 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x34c app/out/app/src/boton.o
+ .debug_macro   0x00000000       0xdc app/out/app/src/boton.o
+ .debug_macro   0x00000000       0xc4 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x8f app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x94 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0xb8 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x4c app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x16 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x328 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x3a app/out/app/src/boton.o
+ .debug_macro   0x00000000       0xd0 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x18 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x22 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x40 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x64 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x18 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x35 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x34 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x16 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x97 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x35c app/out/app/src/boton.o
+ .debug_macro   0x00000000       0xf6 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x58 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x1f app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x43 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x20 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x18e app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0xb6 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x16 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x129 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x20 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0xee app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x1c app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x1c app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x40 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x16 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x26c app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x5e app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x12 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0xfa app/out/app/src/boton.o
+ .debug_macro   0x00000000       0xee app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x69a app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x272 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x16 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x40 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x70 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x70 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x22 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x16 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x82 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x16 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x7c app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x64 app/out/app/src/boton.o
+ .debug_macro   0x00000000      0x1ec app/out/app/src/boton.o
+ .debug_macro   0x00000000       0x10 app/out/app/src/boton.o
+ .debug_line    0x00000000      0xd51 app/out/app/src/boton.o
+ .debug_str     0x00000000    0x20fdb app/out/app/src/boton.o
+ .comment       0x00000000       0x69 app/out/app/src/boton.o
+ .debug_frame   0x00000000       0x40 app/out/app/src/boton.o
+ .ARM.attributes
+                0x00000000       0x34 app/out/app/src/boton.o
  .group         0x00000000        0xc app/out/app/src/encoder.o
  .group         0x00000000        0xc app/out/app/src/encoder.o
  .group         0x00000000        0xc app/out/app/src/encoder.o
@@ -497,17 +748,25 @@ Discarded input sections
  .text.encoderInit
                 0x00000000       0x48 app/out/app/src/encoder.o
  .text.encoderRead
-                0x00000000       0xe0 app/out/app/src/encoder.o
+                0x00000000       0xf0 app/out/app/src/encoder.o
  .bss.CLK_PIN   0x00000000        0x1 app/out/app/src/encoder.o
  .bss.DT_PIN    0x00000000        0x1 app/out/app/src/encoder.o
  .bss.SENS      0x00000000        0x1 app/out/app/src/encoder.o
  .bss.SW_PIN    0x00000000        0x1 app/out/app/src/encoder.o
- .bss.apretado  0x00000000        0x1 app/out/app/src/encoder.o
- .bss.cont1     0x00000000        0x1 app/out/app/src/encoder.o
- .bss.cont2     0x00000000        0x1 app/out/app/src/encoder.o
- .bss.contB     0x00000000        0x1 app/out/app/src/encoder.o
+ .bss.cambiandoEstado.13392
+                0x00000000        0x1 app/out/app/src/encoder.o
+ .bss.cont1.13387
+                0x00000000        0x1 app/out/app/src/encoder.o
+ .bss.cont2.13388
+                0x00000000        0x1 app/out/app/src/encoder.o
+ .bss.estadoAct.13391
+                0x00000000        0x1 app/out/app/src/encoder.o
+ .bss.estadoAnt.13390
+                0x00000000        0x1 app/out/app/src/encoder.o
+ .bss.tiempo.13389
+                0x00000000        0x1 app/out/app/src/encoder.o
  .bss.ultEst    0x00000000        0x1 app/out/app/src/encoder.o
- .debug_info    0x00000000     0x267c app/out/app/src/encoder.o
+ .debug_info    0x00000000     0x2697 app/out/app/src/encoder.o
  .debug_abbrev  0x00000000      0x32b app/out/app/src/encoder.o
  .debug_loc     0x00000000       0xfa app/out/app/src/encoder.o
  .debug_aranges
@@ -625,8 +884,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x64 app/out/app/src/encoder.o
  .debug_macro   0x00000000      0x1ec app/out/app/src/encoder.o
  .debug_macro   0x00000000       0x10 app/out/app/src/encoder.o
- .debug_line    0x00000000      0xded app/out/app/src/encoder.o
- .debug_str     0x00000000    0x20ff0 app/out/app/src/encoder.o
+ .debug_line    0x00000000      0xdf7 app/out/app/src/encoder.o
+ .debug_str     0x00000000    0x2100c app/out/app/src/encoder.o
  .comment       0x00000000       0x69 app/out/app/src/encoder.o
  .debug_frame   0x00000000       0x48 app/out/app/src/encoder.o
  .ARM.attributes
@@ -13663,6 +13922,7 @@ Linker script and memory map
 
 LOAD app/out/app/src/eeprom.o
 LOAD app/out/app/src/app.o
+LOAD app/out/app/src/boton.o
 LOAD app/out/app/src/encoder.o
 LOAD app/out/app/src/motor.o
 LOAD app/out/libs/sapi/sapi_v0.5.2/base/src/sapi_datatypes.o
@@ -15498,6 +15758,8 @@ adcInit                                           app/out/libs/sapi/sapi_v0.5.2/
 adcRead                                           app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_adc.o
 boardInit                                         app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
                                                   app/out/app/src/app.o
+botonInit                                         app/out/app/src/boton.o
+botonRead                                         app/out/app/src/boton.o
 bss_init                                          app/out/libs/vendor_libs/lpc_startup/src/cr_startup_lpc43xx.o
 cdcUartInit                                       app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/cdc_uart.o
 cdcUartLpcInit                                    app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/cdc_uart.o
@@ -15584,11 +15846,13 @@ gpioInit                                          app/out/libs/sapi/sapi_v0.5.2/
                                                   app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
                                                   app/out/app/src/motor.o
                                                   app/out/app/src/encoder.o
+                                                  app/out/app/src/boton.o
 gpioPinsInit                                      app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
 gpioRead                                          app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
                                                   app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_keypad.o
                                                   app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_dht11.o
                                                   app/out/app/src/encoder.o
+                                                  app/out/app/src/boton.o
 gpioToggle                                        app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
 gpioWrite                                         app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
                                                   app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_7_segment_display.o
