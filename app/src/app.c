@@ -22,16 +22,15 @@ int main( void )
    //encoderInit(ENET_TXEN,GPIO2,GPIO4,3);
    //mefInit();
    //mefUpdate(0,0,0);
-   botonInit(ENET_TXEN,20);
+   botonInit(ENET_RXD1,20);
    uint8_t sentido=0;
    uint8_t boton=0;
    while( TRUE ) {
       boton=botonRead();
       if(boton !=0){
-    //     mefUpdate(sentido,boton,botonRead());
+         //mefUpdate(sentido,boton,botonRead());
          gpioWrite(LED3,HIGH);
-      }
-
+         }
       
       delay(1);
    }

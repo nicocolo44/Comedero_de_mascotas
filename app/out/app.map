@@ -15150,31 +15150,31 @@ OUTPUT(app/out/app.elf elf32-littlearm)
  .debug_macro   0x00007666      0x42d app/out/libs/vendor_libs/lpc_startup/src/cr_startup_lpc43xx.o
  .debug_macro   0x00007a93       0x17 app/out/libs/vendor_libs/lpc_startup/src/crp.o
 
-.debug_line     0x00000000    0x10995
- .debug_line    0x00000000      0xd09 app/out/app/src/app.o
- .debug_line    0x00000d09      0xd61 app/out/app/src/boton.o
- .debug_line    0x00001a6a      0x92f app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
- .debug_line    0x00002399      0xbb9 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
- .debug_line    0x00002f52      0xdab app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_timer.o
- .debug_line    0x00003cfd      0x9fe app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
- .debug_line    0x000046fb      0xd2a app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
- .debug_line    0x00005425      0x936 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
- .debug_line    0x00005d5b      0xac5 app/out/libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.o
- .debug_line    0x00006820      0xcb1 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
- .debug_line    0x000074d1      0x912 app/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board_sysinit.o
- .debug_line    0x00007de3      0x82f app/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/sysinit.o
- .debug_line    0x00008612      0xd25 app/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board.o
- .debug_line    0x00009337     0x1261 app/out/libs/vendor_libs/lpc_chip_43xx/src/ssp_18xx_43xx.o
- .debug_line    0x0000a598     0x105a app/out/libs/vendor_libs/lpc_chip_43xx/src/i2c_18xx_43xx.o
- .debug_line    0x0000b5f2      0x728 app/out/libs/vendor_libs/lpc_chip_43xx/src/gpio_18xx_43xx.o
- .debug_line    0x0000bd1a      0x357 app/out/libs/vendor_libs/lpc_chip_43xx/src/fpu_init.o
- .debug_line    0x0000c071      0xa9b app/out/libs/vendor_libs/lpc_chip_43xx/src/adc_18xx_43xx.o
- .debug_line    0x0000cb0c      0x93a app/out/libs/vendor_libs/lpc_chip_43xx/src/sysinit_18xx_43xx.o
- .debug_line    0x0000d446      0x7af app/out/libs/vendor_libs/lpc_chip_43xx/src/chip_18xx_43xx.o
- .debug_line    0x0000dbf5     0x1453 app/out/libs/vendor_libs/lpc_chip_43xx/src/clock_18xx_43xx.o
- .debug_line    0x0000f048      0xee6 app/out/libs/vendor_libs/lpc_chip_43xx/src/uart_18xx_43xx.o
- .debug_line    0x0000ff2e      0xa20 app/out/libs/vendor_libs/lpc_startup/src/cr_startup_lpc43xx.o
- .debug_line    0x0001094e       0x47 app/out/libs/vendor_libs/lpc_startup/src/crp.o
+.debug_line     0x00000000    0x10993
+ .debug_line    0x00000000      0xd07 app/out/app/src/app.o
+ .debug_line    0x00000d07      0xd61 app/out/app/src/boton.o
+ .debug_line    0x00001a68      0x92f app/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_line    0x00002397      0xbb9 app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_line    0x00002f50      0xdab app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_timer.o
+ .debug_line    0x00003cfb      0x9fe app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+ .debug_line    0x000046f9      0xd2a app/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+ .debug_line    0x00005423      0x936 app/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
+ .debug_line    0x00005d59      0xac5 app/out/libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.o
+ .debug_line    0x0000681e      0xcb1 app/out/libs/sapi/sapi_v0.5.2/external_peripherals/src/sapi_ultrasonic_hcsr04.o
+ .debug_line    0x000074cf      0x912 app/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board_sysinit.o
+ .debug_line    0x00007de1      0x82f app/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/sysinit.o
+ .debug_line    0x00008610      0xd25 app/out/libs/vendor_libs/lpc_board_ciaa_edu_4337/src/board.o
+ .debug_line    0x00009335     0x1261 app/out/libs/vendor_libs/lpc_chip_43xx/src/ssp_18xx_43xx.o
+ .debug_line    0x0000a596     0x105a app/out/libs/vendor_libs/lpc_chip_43xx/src/i2c_18xx_43xx.o
+ .debug_line    0x0000b5f0      0x728 app/out/libs/vendor_libs/lpc_chip_43xx/src/gpio_18xx_43xx.o
+ .debug_line    0x0000bd18      0x357 app/out/libs/vendor_libs/lpc_chip_43xx/src/fpu_init.o
+ .debug_line    0x0000c06f      0xa9b app/out/libs/vendor_libs/lpc_chip_43xx/src/adc_18xx_43xx.o
+ .debug_line    0x0000cb0a      0x93a app/out/libs/vendor_libs/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_line    0x0000d444      0x7af app/out/libs/vendor_libs/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .debug_line    0x0000dbf3     0x1453 app/out/libs/vendor_libs/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_line    0x0000f046      0xee6 app/out/libs/vendor_libs/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_line    0x0000ff2c      0xa20 app/out/libs/vendor_libs/lpc_startup/src/cr_startup_lpc43xx.o
+ .debug_line    0x0001094c       0x47 app/out/libs/vendor_libs/lpc_startup/src/crp.o
 
 .debug_str      0x00000000    0x24c33
  .debug_str     0x00000000    0x202c2 app/out/app/src/app.o

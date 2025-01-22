@@ -5,7 +5,7 @@ static uint8_t tiempo;
 void botonInit(uint8_t pin,uint8_t time){
    BOTON_PIN=pin;
    tiempo= time;
-   gpioConfig(BOTON_PIN,GPIO_INPUT_PULLUP);
+   gpioConfig(BOTON_PIN,GPIO_INPUT_PULLDOWN);
 }
    
 uint8_t botonRead(){
