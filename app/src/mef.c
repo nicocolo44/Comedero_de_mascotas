@@ -11,7 +11,6 @@ void mefInit(){
 }
 
 void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
-   static uint8_t* hora ="     ";
 
    switch(estado){
       case PRINCIPAL:
@@ -58,17 +57,6 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
                      }
                      else if(cancelar){
                         estado=OPCION_HORA;}
-                     else if(sentido==1){
-                        //aumento hora
-                        if(++i==4)
-                           i=0;
-                        strcpy(hora,arregloHoras[i]);}
-                     else if(sentido==2){
-                        //Disminuyo hora
-                        if(--i==255)
-                           i=3;
-                        strcpy(hora,arregloHoras[i]);
-                     }
                      
                      break;
       case DAR_COMIDA:
@@ -100,6 +88,7 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
    //***********************************************************************
    switch (estado) {
       uint8_t bufferG[4];
+      static uint8_t hora[6];
         case PRINCIPAL:
             lcdGoToXY(1, 1);
             lcdSendStringRaw("HH:MM           "); // Simula la hora
@@ -139,6 +128,17 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
             lcdSendStringRaw("Elegir hora     ");
             lcdGoToXY(1,2);
             //MOSTRAR HORAS
+            if(sentido==1){
+               //aumento hora
+               if(++i==4)
+                  i=0;
+               strcpy(hora,arregloHoras[i]);}
+            else if(sentido==2){
+               //Disminuyo hora
+               if(--i==255)
+                  i=3;
+               strcpy(hora,arregloHoras[i]);
+            }
             lcdSendStringRaw(hora);
             lcdSendStringRaw("           ");
             break;
@@ -164,6 +164,7 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
             lcdSendStringRaw("Dispensando...  ");
             lcdGoToXY(1,2);
             lcdSendStringRaw("Espere por favor");
+            //girar motor y toda la bola
             break;
 
         default:

@@ -19,17 +19,19 @@ int main( void )
 
    // Inicializar y configurar la plataforma
    boardConfig();
-   encoderInit(ENET_TXEN,GPIO2,GPIO4,3);
-   mefInit();
-   mefUpdate(0,0,0);
-   //botonInit(ENET_TXEN,20);
+   //encoderInit(ENET_TXEN,GPIO2,GPIO4,3);
+   //mefInit();
+   //mefUpdate(0,0,0);
+   botonInit(ENET_TXEN,20);
    uint8_t sentido=0;
    uint8_t boton=0;
    while( TRUE ) {
-      sentido=encoderRead(&boton);
-      if(sentido!=0 || boton !=0){
-         mefUpdate(sentido,boton,0);
+      boton=botonRead();
+      if(boton !=0){
+    //     mefUpdate(sentido,boton,botonRead());
+         gpioWrite(LED3,HIGH);
       }
+
       
       delay(1);
    }

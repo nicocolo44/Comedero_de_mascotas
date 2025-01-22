@@ -8,10 +8,9 @@ app/out/app.elf:10000146 00000001 b SW_PIN
 app/out/app.elf:10000147 00000001 b cambiandoEstado.13392
 app/out/app.elf:10000148 00000001 b cont1.13387
 app/out/app.elf:10000149 00000001 b cont2.13388
-app/out/app.elf:1000014a 00000001 b estadoAct.13391
-app/out/app.elf:1000014b 00000001 b estadoAnt.13390
-app/out/app.elf:1000014c 00000001 b tiempo.13389
-app/out/app.elf:1000014d 00000001 b ultEst
+app/out/app.elf:1000014a 00000001 b estadoAnt.13390
+app/out/app.elf:1000014b 00000001 b tiempo.13389
+app/out/app.elf:1000014c 00000001 b ultEst
 app/out/app.elf:10000010 00000004 d ClockSpeed
 app/out/app.elf:1a0007c4 00000034 t gpioObtainPinInit
 app/out/app.elf:1a000a36 00000002 t errorOcurred
@@ -65,7 +64,7 @@ app/out/app.elf:1a002170 00000010 T strcpy
 app/out/app.elf:1a000abc 00000044 T TIMER2_IRQHandler
 app/out/app.elf:1a000184 00000002 W DebugMon_Handler
 app/out/app.elf:1a00018a 00000002 W RIT_IRQHandler
-app/out/app.elf:1a00034c 0000001c T mefInit
+app/out/app.elf:1a000358 0000001c T mefInit
 app/out/app.elf:1a080000 A __top_MFlashA512
 app/out/app.elf:1a00018a 00000002 W ADCHS_IRQHandler
 app/out/app.elf:1a000114 T __section_table_start
@@ -103,7 +102,7 @@ app/out/app.elf:1a00238c 000001f0 T _svfprintf_r
 app/out/app.elf:1a001db8 T __aeabi_uldivmod
 app/out/app.elf:1000019c ? _noinit
 app/out/app.elf:1000018c 00000004 B SystemCoreClock
-app/out/app.elf:1a000368 00000304 T mefUpdate
+app/out/app.elf:1a000374 000002fc T mefUpdate
 app/out/app.elf:1a001c00 00000054 T Chip_UART_Init
 app/out/app.elf:1a00018a 00000002 W ADC0_IRQHandler
 app/out/app.elf:1a000180 00000002 W UsageFault_Handler
@@ -128,7 +127,7 @@ app/out/app.elf:1a00018a 00000002 W ADC1_IRQHandler
 app/out/app.elf:1a001260 0000002c T Board_Init
 app/out/app.elf:1a001db4 00000002 T _init
 app/out/app.elf:1a000114 T __data_section_table
-app/out/app.elf:1a00066c 00000048 T encoderInit
+app/out/app.elf:1a000670 00000048 T encoderInit
 app/out/app.elf:1a00018a 00000002 W RTC_IRQHandler
 app/out/app.elf:1000019c B _ebss
 app/out/app.elf:1a000a3c 00000040 T TIMER0_IRQHandler
@@ -164,7 +163,7 @@ app/out/app.elf:1a002cbc 00000004 T OscRateIn
 app/out/app.elf:1000019c ? _end_noinit
 app/out/app.elf:10008000 A _vStackTop
 app/out/app.elf:1a00018a 00000002 W SSP1_IRQHandler
-app/out/app.elf:1a0006b4 000000f4 T encoderRead
+app/out/app.elf:1a0006b8 000000f0 T encoderRead
 app/out/app.elf:1a000e36 00000030 T lcdData
 app/out/app.elf:1a000178 T __bss_section_table_end
 app/out/app.elf:1a0007f8 00000194 T gpioInit
@@ -180,7 +179,7 @@ app/out/app.elf:1a0002fc T __CRP_WORD_START__
 app/out/app.elf:1a002180 00000002 T __retarget_lock_acquire_recursive
 app/out/app.elf:1a002120 00000010 T memset
 app/out/app.elf:1a00017c 00000002 W MemManage_Handler
-app/out/app.elf:1a000300 0000004a T main
+app/out/app.elf:1a000300 00000056 T main
 app/out/app.elf:1a00018a 00000002 W WDT_IRQHandler
 app/out/app.elf:2000c000 A __top_RamAHB16
 app/out/app.elf:1008a000 A __top_RamLoc40
