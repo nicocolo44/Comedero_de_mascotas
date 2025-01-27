@@ -18,7 +18,7 @@ void eepromWriteGramos(uint8_t gramos){
 void eepromReadHora(uint8_t *hora){
    uint8_t i;
    for(i=0;i<5;i++){
-      hora[i]=Board_EEPROM_readByte(DIR_GRAMOS+i);//FORMATO HH:MM
+      hora[i]=Board_EEPROM_readByte(DIR_HORA+i);//FORMATO HH:MM
    }
    hora[5]='\0';
 }

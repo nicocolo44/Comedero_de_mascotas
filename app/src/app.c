@@ -19,7 +19,7 @@ int main( void )
 
    // Inicializar y configurar la plataforma
    boardConfig();
-   /*
+   
    encoderInit(ENET_TXEN,GPIO2,GPIO4,3);
    mefInit();
    mefUpdate(0,0,0);
@@ -34,15 +34,7 @@ int main( void )
       
       delay(1);
    }
-   */
-   Board_EEPROM_init();
-   uint8_t* hora="14:00";
-   uint8_t i;
-   for(i=0;i<5;i++){
-      Board_EEPROM_writeByte(0x10+i,hora[i]);//FORMATO HH:MM
-   }
    
-   while(TRUE){
-      }
+   
    return 0;
 }

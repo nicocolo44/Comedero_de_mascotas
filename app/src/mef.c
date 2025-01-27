@@ -4,6 +4,7 @@
 
 static estadosMef estado;
 static uint8_t gramos;
+static uint8_t hora[6];
 static uint8_t i=0;
 const uint8_t* arregloHoras[]={"14:00","16:00","20:00","21:00"};
 void mefInit(){
@@ -46,8 +47,10 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
                      }
                      break;
       case OPCION_HORA:
-                     if(boton)
+                     if(boton){
                         estado=DEFINIR_HORA;
+                        eepromReadHora(hora);
+                        }
                      else if(sentido==1)
                         estado=DAR_COMIDA;
                      else if(sentido==2)
@@ -56,7 +59,8 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
       case DEFINIR_HORA:
                      if(boton){
                         estado=OPCION_HORA;
-                        //Guardo hora de comida en eeprom?
+                        //Guardo hora de comida en eeprom
+                        eepromWriteHora(hora);
                      }
                      else if(cancelar){
                         estado=OPCION_HORA;}
@@ -91,7 +95,6 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
    //***********************************************************************
    switch (estado) {
       uint8_t bufferG[4];
-      static uint8_t hora[6];
         case PRINCIPAL:
             lcdGoToXY(1, 1);
             lcdSendStringRaw("HH:MM           "); // Simula la hora
@@ -135,14 +138,14 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
                //aumento hora
                if(++i==4)
                   i=0;
+               strcpy(hora,arregloHoras[i]);
                }
             else if(sentido==2){
                //Disminuyo hora
                if(--i==255)
                   i=3;
-               
+               strcpy(hora,arregloHoras[i]);
             }
-            strcpy(hora,arregloHoras[i]);
             lcdSendStringRaw(hora);
             lcdSendStringRaw("           ");
             break;
