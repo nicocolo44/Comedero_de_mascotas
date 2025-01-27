@@ -3,12 +3,15 @@
 
 #include "eeprom.h"
 
-#define DIR_GRAMOS 0x0
-#define DIR_HORA 0x1
+#define DIR_GRAMOS 0x00
+#define DIR_HORA 0x10
 
 
 // Declaración de funciones
-void eepromLeerGramos(uint8_t *);
-void eepromLeerHora(uint8_t *);
+void eepromInit();
+uint8_t eepromReadGramos();
+void eepromWriteGramos(uint8_t);
+void eepromReadHora(uint8_t *);
+void eepromWriteHora(uint8_t*);
 
 #endif  // EEPROMUTIL_H

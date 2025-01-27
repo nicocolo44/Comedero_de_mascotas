@@ -1,13 +1,15 @@
 #include "mef.h"
 #include <string.h>
+#include "eepromUtil.h"
 
 static estadosMef estado;
 static uint8_t gramos;
 static uint8_t i=0;
 const uint8_t* arregloHoras[]={"14:00","16:00","20:00","21:00"};
 void mefInit(){
-      estado = PRINCIPAL;
-      lcdInit(16,2,5,8);
+   estado = PRINCIPAL;
+   lcdInit(16,2,5,8);
+   eepromInit();
 }
 
 void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
@@ -20,27 +22,27 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
                         estado=DAR_COMIDA;
                      break;
       case OPCION_COMIDA:
-                     if(boton)
+                     if(boton){
                         estado=ELEGIR_CANTIDAD_COMIDA;
+                        gramos=eepromReadGramos();
+                        }
                      else if(sentido==1)
                         estado=OPCION_HORA;
                      else if(sentido==2)
                         estado=PRINCIPAL;
                      break;
       case ELEGIR_CANTIDAD_COMIDA:
-                     //Leer gramos de eeprom y guardarlos en variable gramos
-                     
                      if(boton){
                         estado=OPCION_COMIDA;
-                        //Guardo gramos de comida en eeprom?
+                        //Guardo gramos de comida en eeprom
+                        eepromWriteGramos(gramos);
                      }
                      else if(cancelar)
                         estado=OPCION_COMIDA;
                      else if(sentido==1)
                         gramos++;
                      else if(sentido==2){
-                        //if(gramos>0)
-                           gramos--;
+                        gramos--;
                      }
                      break;
       case OPCION_HORA:

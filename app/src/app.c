@@ -19,8 +19,6 @@ int main( void )
 
    // Inicializar y configurar la plataforma
    boardConfig();
-   lcdInit(16,2,5,8);
-   Board_EEPROM_init();
    /*
    encoderInit(ENET_TXEN,GPIO2,GPIO4,3);
    mefInit();
@@ -37,24 +35,14 @@ int main( void )
       delay(1);
    }
    */
-   
-   uint8_t arr[4]={'1','2','3','\0'};
-   uint32_t DIR=0x0;
-   uint8_t car;
-   lcdGoToXY(1,1);
-   Board_EEPROM_writeByte(DIR,arr[0]);
-   car=Board_EEPROM_readByte(DIR);
-   lcdData(car);
-   DIR++;
-   Board_EEPROM_writeByte(DIR,arr[1]);
-   car=Board_EEPROM_readByte(DIR);
-   lcdData(car);
-   
-   while( TRUE ) {
-      
-      
-      delay(1);
+   Board_EEPROM_init();
+   uint8_t* hora="14:00";
+   uint8_t i;
+   for(i=0;i<5;i++){
+      Board_EEPROM_writeByte(0x10+i,hora[i]);//FORMATO HH:MM
    }
    
+   while(TRUE){
+      }
    return 0;
 }
