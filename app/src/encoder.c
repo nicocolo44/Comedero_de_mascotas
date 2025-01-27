@@ -37,8 +37,8 @@ uint8_t encoderRead(uint8_t* estadoBoton){
       }
    }
    ultEst=est;
-   
-   if(++tiempo >= 20){
+   /*
+   if(++tiempo >= 200){
        estadoAct = gpioRead(SW_PIN);
        if(cambiandoEstado && estadoAct == estadoAnt){
            //*estadoBoton = !estadoAct;
@@ -56,15 +56,31 @@ uint8_t encoderRead(uint8_t* estadoBoton){
             }
       }
    }
+   */
+   estadoAct = gpioRead(SW_PIN);
+   if(cambiandoEstado || estadoAct!=estadoAnt){
+      cambiandoEstado=1;
+       if(++tiempo>=20 && estadoAct == estadoAnt){
+         cambiandoEstado = 0;
+         tiempo=0;
+         if(!estadoAct)
+            *estadoBoton=1;
+         else 
+            *estadoBoton=0;
+       }
+       else 
+          *estadoBoton=0;
+    }
    else *estadoBoton=0;
-      if(cont1==SENS){
-         cont1=0;
-         return 1;
-      }
-      if(cont2==SENS){
-         cont2=0;
-         return 2;         
-      }
-      return 0;
+   
+   if(cont1==SENS){
+      cont1=0;
+      return 1;
+   }
+   if(cont2==SENS){
+      cont2=0;
+      return 2;         
+   }
+   return 0;
       
 }

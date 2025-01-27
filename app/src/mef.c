@@ -29,6 +29,7 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
                      break;
       case ELEGIR_CANTIDAD_COMIDA:
                      //Leer gramos de eeprom y guardarlos en variable gramos
+                     
                      if(boton){
                         estado=OPCION_COMIDA;
                         //Guardo gramos de comida en eeprom?
@@ -132,13 +133,14 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
                //aumento hora
                if(++i==4)
                   i=0;
-               strcpy(hora,arregloHoras[i]);}
+               }
             else if(sentido==2){
                //Disminuyo hora
                if(--i==255)
                   i=3;
-               strcpy(hora,arregloHoras[i]);
+               
             }
+            strcpy(hora,arregloHoras[i]);
             lcdSendStringRaw(hora);
             lcdSendStringRaw("           ");
             break;
