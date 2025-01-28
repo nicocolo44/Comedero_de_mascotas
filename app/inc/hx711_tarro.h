@@ -20,4 +20,9 @@ void HX711_tarro_Tare(int8_t muestras);
 // Calibra el HX711
 int32_t HX711_tarro_Calibrate(int32_t peso_conocido)
 
+//funciones de debug
+int32_t HX711_tarro_GetValorBase(void);
+int32_t HX711_tarro_GetFactorConversion(void);
+
+
 #endif // HX711_tarro_H

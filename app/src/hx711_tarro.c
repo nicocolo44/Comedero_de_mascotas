@@ -68,3 +68,11 @@ int32_t HX711_tarro_Calibrate(int32_t peso_conocido) {
     factor_de_conversion /= peso_conocido;
     return factor_de_conversion;
 }
+
+int32_t HX711_tarro_GetValorBase(void) {
+    return valor_base;
+}
+
+int32_t HX711_tarro_GetFactorConversion(void) {
+    return factor_de_conversion;
+}

@@ -68,3 +68,12 @@ int32_t HX711_plato_Calibrate(int32_t peso_conocido) {
     factor_de_conversion /= peso_conocido;
     return factor_de_conversion;
 }
+
+
+int32_t HX711_plato_GetValorBase(void) {
+    return valor_base;
+}
+
+int32_t HX711_plato_GetFactorConversion(void) {
+    return factor_de_conversion;
+}
