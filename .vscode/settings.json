@@ -3,6 +3,7 @@
         "*.ejs": "html",
         ".fantomasignore": "ignore",
         "ESP01.C": "cpp",
-        "sapi_esp8266.h": "c"
+        "sapi_esp8266.h": "c",
+        "hx711.h": "c"
     }
 }
