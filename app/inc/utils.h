@@ -1,10 +1,10 @@
-#ifndef UTLIS_H
-#define UTLIS_H
+#ifndef UTILS_H
+#define UTILS_H
 
 #include <stdint.h>
 #include "sapi.h"
 #include <stdbool.h>
-#include "hx711.h"
+#include "hx711_plato.h"
 #include "buzzer.h"
 
 // Dar comida

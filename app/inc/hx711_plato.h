@@ -12,12 +12,12 @@ void HX711_plato_Init(uint8_t sck_pin, uint8_t dout_pin);
 int8_t HX711_plato_Read(int32_t* data);
 
 // Obtiene el peso calculado
-float HX711_plato_GetWeight(void);
+float HX711_plato_GetWeight(int32_t data);
 
 // Realiza la tara del HX711
 void HX711_plato_Tare(int8_t muestras);
 
 // Calibra el HX711
-int32_t HX711_plato_Calibrate(int32_t peso_conocido)
+int32_t HX711_plato_Calibrate(int32_t peso_conocido);
 
 #endif // HX711_PLATO_H

@@ -12,5 +12,5 @@ void espSendData(char* data){
 
 void espReceiveData(char* data){
     // Esta función lee hasta 100 caracteres de la UART_232 y los almacena en 'data'
-    uartReadString(UART_232, data, 100);
+    //uartReadString(UART_232, data, 100);
 }
