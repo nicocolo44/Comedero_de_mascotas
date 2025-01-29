@@ -5,6 +5,7 @@
 #include "sapi.h"
 #include <stdbool.h>
 #include "hx711.h"
+#include "buzzer.h"
 
 // Dar comida
 void dar_comida(void);
