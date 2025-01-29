@@ -13,5 +13,7 @@ void Buzzer_On(void);
 // Apaga el buzzer
 void Buzzer_Off(void);
 
+void Buzzer_Toggle(void);
+
 #endif /* BUZZER_H */
 

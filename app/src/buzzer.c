@@ -21,3 +21,7 @@ void Buzzer_On(void){
 void Buzzer_Off(void){
     gpioWrite(BUZZER_PIN, false);
 }
+
+void Buzzer_Toggle(void){
+    gpioToggle(BUZZER_PIN);
+}
