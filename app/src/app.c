@@ -8,9 +8,10 @@
 
 #include "app.h"         // <= Su propia cabecera (opcional)
 #include "sapi.h"        // <= Biblioteca sAPI
-#include "chip.h"
-#include "sapi_esp8266.h"
-
+#include "boton.h"
+#include "mef.h"
+#include "encoder.h"
+#include "eeprom.h"
 // FUNCION PRINCIPAL, PUNTO DE ENTRADA AL PROGRAMA LUEGO DE ENCENDIDO O RESET.
 int main( void )
 {
@@ -18,14 +19,21 @@ int main( void )
 
    // Inicializar y configurar la plataforma
    boardConfig();
-
-   // ---------- REPETIR POR SIEMPRE --------------------------
+   encoderInit(ENET_TXEN,GPIO2,GPIO4,3);
+   mefInit();
+   mefUpdate(0,0,0);
+   //botonInit(GPIO4,20);
+   uint8_t sentido=0;
+   uint8_t boton=0;
    while( TRUE ) {
- 
+      sentido=encoderRead(&boton);
+      if(sentido != 0 || boton != 0){
+         mefUpdate(sentido,boton,0);
+      }
+      
+      delay(1);
    }
-
-   // NO DEBE LLEGAR NUNCA AQUI, debido a que a este programa se ejecuta
-   // directamenteno sobre un microcontroladore y no es llamado por ningun
-   // Sistema Operativo, como en el caso de un programa para PC.
+   
+   
    return 0;
 }

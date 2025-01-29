@@ -51,7 +51,7 @@ float HX711_plato_GetWeight(int32_t lectura) {
    return (float)(lectura - valor_base) / factor_de_conversion;
 }
 
-void HX711_plato_Tare(uint8_t muestras) {
+void HX711_plato_Tare(int8_t muestras) {
     int32_t sumatoria = 0;
     int32_t lectura;
     for (int i = 0; i < muestras; i++) {
