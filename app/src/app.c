@@ -19,7 +19,6 @@ int main( void )
 
    // Inicializar y configurar la plataforma
    boardConfig();
-   
    encoderInit(ENET_TXEN,GPIO2,GPIO4,3);
    mefInit();
    mefUpdate(0,0,0);
