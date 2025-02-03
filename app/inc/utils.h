@@ -7,8 +7,12 @@
 #include "hx711_plato.h"
 #include "buzzer.h"
 #include "motor.h"
+#include "eepromUtil.h"
+
 
 // Dar comida
 void dar_comida(void);
+
+void procesarRespuesta(char *data);
 
 #endif // UTLIS_H

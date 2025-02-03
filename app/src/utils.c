@@ -9,6 +9,7 @@ void dar_comida(){
     float peso = HX711_plato_GetWeight(lectura);
    int i;
     while (pesoADispensar > lectura) {
+       gpioToggle(LED1);
         for (i = 0; i < 10; i++) {
             motorOn();
             delay(2);
@@ -22,4 +23,17 @@ void dar_comida(){
         peso = HX711_plato_GetWeight(lectura);
     }
     Buzzer_Off();
+}
+
+
+void procesarRespuesta(char *data){
+   char time[6];
+    int darComida, gramosAServir;
+   sscanf(data, "%5[^,],%d,%d", time, &gramosAServir, &darComida);
+   uartWriteString(UART_USB, data);
+   
+   if(darComida)
+         dar_comida();
+   eepromWriteGramos(gramosAServir);
+   eepromWriteHora(time);
 }

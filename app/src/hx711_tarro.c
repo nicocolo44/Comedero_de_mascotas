@@ -47,8 +47,8 @@ int8_t HX711_tarro_Read(int32_t* data) {
 }
 
 
-float HX711_tarro_GetWeight(int32_t lectura) {
-   return (float)(lectura - valor_base) / factor_de_conversion;
+int32_t HX711_tarro_GetWeight(int32_t lectura) {
+   return (int32_t)(lectura - valor_base) / factor_de_conversion;
 }
 
 void HX711_tarro_Tare(int8_t muestras) {
