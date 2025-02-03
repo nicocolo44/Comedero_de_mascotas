@@ -75,15 +75,17 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
                         estado=OPCION_HORA;
                      break;
       case DAR_COMIDA2:
-                     if(boton)
-                        estado=DISPENSANDO;
+                     if(boton){
+                        lcdGoToXY(1,1);
+                        lcdSendStringRaw("Dispensando...  ");
+                        lcdGoToXY(1,2);
+                        lcdSendStringRaw("Espere por favor");
+                        dar_comida();
+                        estado=PRINCIPAL;
+                        }
                      else if(cancelar)
                         estado=DAR_COMIDA;
                      break;
-      case DISPENSANDO:
-         //Habria que ver como hacer para que no haga nada hasta que deje de dispensar
-         if(cancelar)
-            estado=PRINCIPAL;
       default:
          lcdGoToXY(1,1);
          lcdSendStringRaw("Error           ");
@@ -165,15 +167,6 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
             lcdGoToXY(1,2);
             lcdSendStringRaw("Confirmar?      ");
             break;
-
-        case DISPENSANDO:
-            lcdGoToXY(1,1);
-            lcdSendStringRaw("Dispensando...  ");
-            lcdGoToXY(1,2);
-            lcdSendStringRaw("Espere por favor");
-            //girar motor y toda la bola
-            break;
-
         default:
             lcdGoToXY(1, 1);
             lcdSendStringRaw("Error           ");

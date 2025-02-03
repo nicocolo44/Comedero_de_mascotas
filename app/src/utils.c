@@ -1,25 +1,25 @@
 #include "utils.h"
 
 void dar_comida(){
-    uint32_t pesoADispensar = 0; // no se si lo leemos de la eeprom o viene como parametro
+    float pesoADispensar = 690000;
     int32_t lectura;
-    int8_t delayBuzzer = 0;
+    int delayBuzzer = 0;
 
     HX711_plato_Read(&lectura);
     float peso = HX711_plato_GetWeight(lectura);
-
-    while (pesoADispensar > peso) {
-        for (int i = 0; i < 10; i++) {
-            // dar un paso del motor (falta librería en el proyecto principal)
-            delay(3);
+   int i;
+    while (pesoADispensar > lectura) {
+        for (i = 0; i < 10; i++) {
+            motorOn();
+            delay(2);
         }
-        if (++delayBuzzer == 333) {
+        if (++delayBuzzer > 33) {
+           gpioToggle(LED2);
             Buzzer_Toggle();
             delayBuzzer = 0;
         }
         HX711_plato_Read(&lectura);
         peso = HX711_plato_GetWeight(lectura);
     }
-
     Buzzer_Off();
 }

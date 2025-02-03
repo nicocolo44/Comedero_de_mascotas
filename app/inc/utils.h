@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include "hx711_plato.h"
 #include "buzzer.h"
+#include "motor.h"
 
 // Dar comida
 void dar_comida(void);

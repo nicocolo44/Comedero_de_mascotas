@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include "sapi.h"
+#include "utils.h"
 
 typedef enum {PRINCIPAL,OPCION_COMIDA,ELEGIR_CANTIDAD_COMIDA,OPCION_HORA,DEFINIR_HORA,DAR_COMIDA,DAR_COMIDA2,DISPENSANDO}estadosMef;
 
