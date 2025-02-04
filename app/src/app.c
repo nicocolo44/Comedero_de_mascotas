@@ -21,6 +21,7 @@
 #include "utils.h"
 #include "chip.h"
 #include "sapi_timer.h"
+#include "sapi_uart.h"
 
 
 
@@ -44,6 +45,8 @@ int32_t pesoPlato;
 uint8_t sentido=0;
 uint8_t botonEncoder=0;
 
+uint8_t botonCancelar=0;
+
 void timerCallback(void *param) {
    static uint8_t CHECK_TIME_COUNTER = 0;
    SEND_TO_ESP_FLAG = 1;
@@ -60,13 +63,14 @@ int main(void)
    boardConfig();
    //DEBUG
    uartConfig(UART_USB, 115200);
-   
    //Initialization
    eepromInit();
    eepromWriteGramos(100);
    
+   
+   
    espInit(115200);
-   //motorInit(GPIO1,GPIO3,GPIO5,GPIO7);
+   motorInit(GPIO1,GPIO3,GPIO5,GPIO7);
    //HX711_plato_Init(T_FIL1, T_COL2);
    //HX711_tarro_Init();
    encoderInit(ENET_TXEN,GPIO2,GPIO4,3);
@@ -111,8 +115,9 @@ int main(void)
       
       sentido=encoderRead(&botonEncoder);
       //leer el otro boton
-      if(sentido != 0 || botonEncoder != 0){
-         mefUpdate(sentido,botonEncoder,0); //Reemplazar ese 0 por lo que realmente va
+      botonCancelar = botonRead();
+      if(sentido != 0 || botonEncoder != 0 || botonCancelar != 0){
+         mefUpdate(sentido,botonEncoder,botonCancelar); 
       }
       
       

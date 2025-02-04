@@ -1,18 +1,26 @@
 #include "utils.h"
 
+#define TIMEOUT 1340 //APROXIMADAMENTE 40 SEGUNDOS
+
 void dar_comida(){
+   gpioWrite(LED2, HIGH);
     float pesoADispensar = 690000;
     int32_t lectura;
     int delayBuzzer = 0;
+    uint8_t botonCancelar = 0;
+   uint16_t time = 0;
 
     HX711_plato_Read(&lectura);
     float peso = HX711_plato_GetWeight(lectura);
    int i;
     while (pesoADispensar > lectura) {
-       gpioToggle(LED1);
         for (i = 0; i < 10; i++) {
             motorOn();
-            delay(2);
+            delay(3);
+        }
+        botonCancelar = botonRead();
+        if(botonCancelar || ++time >= TIMEOUT){
+           break;
         }
         if (++delayBuzzer > 33) {
            gpioToggle(LED2);
