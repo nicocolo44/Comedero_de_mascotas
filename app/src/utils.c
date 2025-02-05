@@ -12,6 +12,7 @@ void dar_comida(){
 
     HX711_plato_Read(&lectura);
     float peso = HX711_plato_GetWeight(lectura);
+   lectura = 0;
    int i;
     while (pesoADispensar > lectura) {
         for (i = 0; i < 10; i++) {
@@ -29,8 +30,10 @@ void dar_comida(){
         }
         HX711_plato_Read(&lectura);
         peso = HX711_plato_GetWeight(lectura);
+        lectura = 0;
     }
     Buzzer_Off();
+    gpioWrite(LED2, LOW);
 }
 
 
