@@ -176,3 +176,8 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
     }
    
 }
+
+void mefDarComida(){
+   estado = DAR_COMIDA2;
+   mefUpdate(0,1,0);
+}

@@ -11,5 +11,6 @@ void mefInit();
 
 void mefUpdate(uint8_t sentido ,uint8_t boton ,uint8_t cancelar);
 
+void mefDarComida();
 
 #endif
