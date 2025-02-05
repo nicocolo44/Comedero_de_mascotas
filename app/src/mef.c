@@ -1,6 +1,4 @@
 #include "mef.h"
-#include <string.h>
-#include "eepromUtil.h"
 
 static estadosMef estado;
 static uint8_t gramos;
@@ -96,15 +94,18 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
    
    //***********************************************************************
    switch (estado) {
-      uint8_t bufferG[4];
+      int32_t data;
+      uint8_t bufferG[17];
       uint8_t bufferH[17];
         case PRINCIPAL:
             rtcRead(&rtc);
             sprintf(bufferH, "%02d:%02d           ", rtc.hour, rtc.min);
+            HX711_tarro_Read(&data);
+            sprintf(bufferG, "%d gramos disp   ", (uint8_t)HX711_tarro_GetWeight(data)); // NOSE SI SE PUEDE CASTEAR ASI xd
             lcdGoToXY(1, 1);
             lcdSendStringRaw(bufferH); // Hora en formato HH:MM
             lcdGoToXY(1, 2);
-            lcdSendStringRaw("Porcentaje comida");
+            lcdSendStringRaw(bufferG);
             break;
 
         case OPCION_COMIDA:
@@ -120,9 +121,8 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
             lcdSendStringRaw("Eleg cant comida");
             lcdGoToXY(1,2);
             //MOSTRAR GRAMOS
-            sprintf(bufferG,"%d",gramos);
+            sprintf(bufferG,"%d gramos        ",gramos);
             lcdSendStringRaw(bufferG);
-            lcdSendStringRaw(" gramos      ");
             break;
 
         case OPCION_HORA:
