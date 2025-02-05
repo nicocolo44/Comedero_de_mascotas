@@ -16,4 +16,5 @@ void dar_comida(void);
 
 void procesarRespuesta(char *data);
 
+void inicializarRtc();
 #endif // UTLIS_H

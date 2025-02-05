@@ -45,3 +45,17 @@ void procesarRespuesta(char *data){
    eepromWriteGramos(gramosAServir);
    eepromWriteHora(time);
 }
+
+void inicializarRtc(){
+   rtc_t rtc;
+   // Completar estructura RTC
+   rtc.year = 2025;
+   rtc.month = 2;
+   rtc.mday = 5;
+   rtc.wday = 0;//lo deje en 0 porque ni idea que es
+   rtc.hour = 14;
+   rtc.min = 00;
+   rtc.sec= 0;
+   rtcInit(&rtc);
+   rtcWrite( &rtc );   
+}

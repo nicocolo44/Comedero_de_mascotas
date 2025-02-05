@@ -14,7 +14,7 @@ void mefInit(){
 }
 
 void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
-
+   rtc_t rtc;
    switch(estado){
       case PRINCIPAL:
                      if(sentido==1)
@@ -97,9 +97,12 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
    //***********************************************************************
    switch (estado) {
       uint8_t bufferG[4];
+      uint8_t bufferH[17];
         case PRINCIPAL:
+            rtcRead(&rtc);
+            sprintf(bufferH, "%02d:%02d           ", rtc.hour, rtc.min);
             lcdGoToXY(1, 1);
-            lcdSendStringRaw("HH:MM           "); // Simula la hora
+            lcdSendStringRaw(bufferH); // Hora en formato HH:MM
             lcdGoToXY(1, 2);
             lcdSendStringRaw("Porcentaje comida");
             break;
