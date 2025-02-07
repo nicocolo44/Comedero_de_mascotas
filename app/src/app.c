@@ -36,11 +36,11 @@ uint8_t WHEIGH_BUCKET_FLAG = 0;
 uint8_t CHECK_TIME_FLAG = 0;
 
 
-int32_t lecturaTarro;
-int32_t pesoTarro;
+int32_t lecturaTarro= 17;
+int32_t pesoTarro = 17;
 
-int32_t lecturaPlato;
-int32_t pesoPlato;
+int32_t lecturaPlato = 17;
+int32_t pesoPlato = 17;
 
 uint8_t sentido=0;
 uint8_t botonEncoder=0;
@@ -49,11 +49,17 @@ uint8_t botonCancelar=0;
 
 void timerCallback(void *param) {
    static uint8_t CHECK_TIME_COUNTER = 0;
-   SEND_TO_ESP_FLAG = 1;
+   static uint8_t CHECK_SEND_TO_ESP = 0;
+   
+   if(++CHECK_SEND_TO_ESP == 5){
+      SEND_TO_ESP_FLAG = 1;
+      CHECK_SEND_TO_ESP = 0;
+   }
    WHEIGH_PLATE_FLAG = 1;
    WHEIGH_BUCKET_FLAG = 1;
    if(++CHECK_TIME_COUNTER == 60){
       CHECK_TIME_FLAG = 1;
+      CHECK_TIME_COUNTER = 0;
    }
 }
 
@@ -66,9 +72,9 @@ int main(void)
    
    //DEBUG
    uartConfig(UART_USB, 115200);
+   uartWriteString(UART_USB, "empezando");
    //Initialization
    eepromInit();
-   eepromWriteGramos(100);
    
    
    
@@ -98,9 +104,7 @@ int main(void)
          WHEIGH_BUCKET_FLAG = 0;
       }
       if(SEND_TO_ESP_FLAG){
-         espSendData(hora, gramosAServir, pesoPlato, pesoTarro);
-         gramosAServir = eepromReadGramos();
-         eepromReadHora(hora);
+         espSendData(pesoPlato, pesoTarro);
          SEND_TO_ESP_FLAG = 0;
       }
       if(CHECK_TIME_FLAG){

@@ -7,7 +7,11 @@
 
 void espInit(uint32_t transmissionSpeed);
 
-void espSendData(char *hora, uint8_t gramosAServir, int32_t pesoPlato, int32_t pesoTarro);
+void espSendData(int32_t pesoPlato, int32_t pesoTarro);
+
+void espSendHora(char* hora);
+
+void espSendGramosAServir(int8_t gramosAServir);
 
 uint8_t espReceiveData(char *buffer, int bufferSize);
 
