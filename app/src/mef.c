@@ -89,8 +89,8 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
                      if(boton){
                         lcdGoToXY(1,1);
                         lcdSendStringRaw("Dispensando...  ");
-                        lcdGoToXY(1,2);
-                        lcdSendStringRaw("Espere por favor");
+                        //lcdGoToXY(1,2);
+                        //lcdSendStringRaw("Espere por favor");
                         dar_comida();
                         estado=PRINCIPAL;
                         }
@@ -114,7 +114,7 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
             rtcRead(&rtc);
             sprintf(bufferH, "%02d:%02d           ", rtc.hour, rtc.min);
             HX711_tarro_Read(&data);
-            sprintf(bufferG, "%d gramos disp   ", (uint8_t)HX711_tarro_GetWeight(data)); // NOSE SI SE PUEDE CASTEAR ASI xd
+            sprintf(bufferG, "%dg p/dispensar", (uint8_t)HX711_tarro_GetWeight(data)); // NOSE SI SE PUEDE CASTEAR ASI xd
             lcdGoToXY(1, 1);
             lcdSendStringRaw(bufferH); // Hora en formato HH:MM
             lcdGoToXY(1, 2);
@@ -123,7 +123,7 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
 
         case OPCION_COMIDA:
             lcdGoToXY(1, 1);
-            lcdSendStringRaw("Eleg cant comida");
+            lcdSendStringRaw("Sel. cant comida");
             lcdGoToXY(1, 2);
             lcdSendStringRaw("                ");
             break;
@@ -131,7 +131,7 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
         case ELEGIR_CANTIDAD_COMIDA:
             lcdGoToXY(1,1);
             //Mostrar opcion
-            lcdSendStringRaw("Eleg cant comida");
+            lcdSendStringRaw("Sel. cant comida  ");
             lcdGoToXY(1,2);
             //MOSTRAR GRAMOS
             sprintf(bufferG,"%d gramos        ",gramos);
@@ -141,7 +141,7 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
         case OPCION_HORA:
             lcdGoToXY(1,1);
             //Mostrar opcion
-            lcdSendStringRaw("Elegir hora     ");
+            lcdSendStringRaw("Seleccionar hora  ");
             lcdGoToXY(1,2);
             lcdSendStringRaw("                ");
             break;
@@ -149,7 +149,7 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
         case DEFINIR_HORA:
             lcdGoToXY(1,1);
             //Mostrar opcion
-            lcdSendStringRaw("Elegir hora     ");
+            lcdSendStringRaw("Seleccionar hora  ");
             lcdGoToXY(1,2);
             //MOSTRAR HORAS
             if(sentido==1){
@@ -171,7 +171,7 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
         case DAR_COMIDA:
             lcdGoToXY(1,1);
             //Mostrar opcion
-            lcdSendStringRaw("Dar comida");
+            lcdSendStringRaw("Dar comida ahora ");
             lcdGoToXY(1,2);
             lcdSendStringRaw("                ");
             break;
@@ -179,7 +179,7 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
         case DAR_COMIDA2:
             lcdGoToXY(1,1);
             //Mostrar opcion
-            lcdSendStringRaw("Dar comida");
+            lcdSendStringRaw("Dar comida ahora ");
             lcdGoToXY(1,2);
             lcdSendStringRaw("Confirmar?      ");
             break;
