@@ -20,8 +20,8 @@
 #include "eepromUtil.h"
 #include "utils.h"
 #include "chip.h"
-#include "sapi_timer.h"
-#include "sapi_uart.h"
+#include "sapi_timer.h"// creo que estos dos se pueden sacar
+#include "sapi_uart.h" //
 
 
 
@@ -67,6 +67,9 @@ void timerCallback(void *param) {
 int main(void)
 {
    boardConfig();
+   
+   inicializarRtc();
+   
    //DEBUG
    uartConfig(UART_USB, 115200);
    uartWriteString(UART_USB, "empezando");
