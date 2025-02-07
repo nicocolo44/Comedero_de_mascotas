@@ -23,6 +23,7 @@ void dar_comida(){
         if(botonCancelar || ++time >= TIMEOUT){
            break;
         }
+        gpioWrite(LED1, HIGH);
         if (++delayBuzzer > 33) {
            gpioToggle(LED2);
             Buzzer_Toggle();
