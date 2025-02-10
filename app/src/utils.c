@@ -3,6 +3,8 @@
 #define TIMEOUT 1340 //APROXIMADAMENTE 40 SEGUNDOS
 #define PROG 1
 void dar_comida(){
+   lcdGoToXY(1,2);
+   lcdSendStringRaw("                ");
    const char progreso[8] = {
    0b00000,
    0b00000,
@@ -35,6 +37,9 @@ void dar_comida(){
         }
         botonCancelar = botonRead();
         if(botonCancelar || ++time >= TIMEOUT){
+           gpioWrite(LED1, HIGH);
+           gpioWrite(LED2, HIGH);
+           gpioWrite(LED3, HIGH);
            break;
         }
         gpioWrite(LED1, HIGH);
@@ -45,13 +50,13 @@ void dar_comida(){
          }
         
         if (++delayBuzzer > 33) {
-           gpioToggle(LED2);
+           
             Buzzer_Toggle();
             delayBuzzer = 0;
         }
         //HX711_plato_Read(&lectura);
         //peso = HX711_plato_GetWeight(lectura);
-        lectura = 0;
+        lectura += 1;
     }
     Buzzer_Off();
     gpioWrite(LED2, LOW);
