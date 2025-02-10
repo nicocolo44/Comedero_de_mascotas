@@ -1,18 +1,33 @@
 #include "utils.h"
 
 #define TIMEOUT 1340 //APROXIMADAMENTE 40 SEGUNDOS
-
+#define PROG 1
 void dar_comida(){
+   const char progreso[8] = {
+   0b00000,
+   0b00000,
+   0b11111,
+   0b11111,
+   0b11111,
+   0b11111,
+   0b00000,
+   0b00000
+   };
+   lcdCreateChar(PROG,progreso);
+   gpioWrite(LED2, HIGH);
    float pesoADispensar = 690000;
    int32_t lectura;
    int delayBuzzer = 0;
    uint8_t botonCancelar = 0;
    uint16_t time = 0;
-
     //HX711_plato_Read(&lectura);
     //float peso = HX711_plato_GetWeight(lectura);
+   lcdGoToXY(1,2);
+   float peso = HX711_plato_GetWeight(lectura);
    lectura = 0;
    int i;
+   int j=1;
+   float barraProgreso = pesoADispensar/16;
     while (pesoADispensar > lectura) {
         for (i = 0; i < 10; i++) {
             motorOn();
@@ -22,6 +37,13 @@ void dar_comida(){
         if(botonCancelar || ++time >= TIMEOUT){
            break;
         }
+        gpioWrite(LED1, HIGH);
+        
+        if(lectura>(barraProgreso*j)){
+           lcdData(PROG);
+           j++;
+         }
+        
         if (++delayBuzzer > 33) {
            gpioToggle(LED2);
             Buzzer_Toggle();
