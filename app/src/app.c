@@ -30,17 +30,17 @@ char buffer[BUFFER_SIZE];
 char hora[6];
 uint8_t gramosAServir;
 
-uint8_t SEND_TO_ESP_FLAG = 0;
-uint8_t WHEIGH_PLATE_FLAG = 0;
-uint8_t WHEIGH_BUCKET_FLAG = 0;
-uint8_t CHECK_TIME_FLAG = 0;
+volatile uint8_t SEND_TO_ESP_FLAG = 0;
+volatile uint8_t WHEIGH_PLATE_FLAG = 0;
+volatile uint8_t WHEIGH_BUCKET_FLAG = 0;
+volatile uint8_t CHECK_TIME_FLAG = 0;
 
 
-int32_t lecturaTarro= 17;
-int32_t pesoTarro = 17;
+volatile int32_t lecturaTarro= 17;
+volatile int32_t pesoTarro = 17;
 
-int32_t lecturaPlato = 17;
-int32_t pesoPlato = 17;
+volatile int32_t lecturaPlato = 17;
+volatile int32_t pesoPlato = 17;
 
 uint8_t sentido=0;
 uint8_t botonEncoder=0;
@@ -50,7 +50,6 @@ uint8_t botonCancelar=0;
 void timerCallback(void *param) {
    static uint8_t CHECK_TIME_COUNTER = 0;
    static uint8_t CHECK_SEND_TO_ESP = 0;
-   
    if(++CHECK_SEND_TO_ESP == 5){
       SEND_TO_ESP_FLAG = 1;
       CHECK_SEND_TO_ESP = 0;
@@ -75,16 +74,12 @@ int main(void)
    uartWriteString(UART_USB, "empezando");
    //Initialization
    eepromInit();
-   
-   
-   
    espInit(115200);
    motorInit(GPIO1,GPIO3,GPIO5,GPIO7);
    //HX711_plato_Init(T_FIL1, T_COL2);
    //HX711_tarro_Init();
    encoderInit(ENET_TXEN,GPIO2,GPIO4,3);
    mefInit();
-   mefUpdate(0,0,0);
    //buzzer
    botonInit(ENET_RXD1,20);
    Timer_Init( 0, Timer_microsecondsToTicks( 1000000 ), timerCallback );

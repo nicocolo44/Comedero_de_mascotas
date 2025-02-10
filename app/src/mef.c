@@ -20,7 +20,7 @@ const uint8_t* arregloHoras[] = {
 void mefInit(){
    estado = PRINCIPAL;
    lcdInit(16,2,5,8);
-   eepromInit();
+   mefUpdate(0,0,0);
 }
 
 void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
@@ -110,11 +110,14 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
       int32_t data;
       uint8_t bufferG[17];
       uint8_t bufferH[17];
+      int32_t weight;
         case PRINCIPAL:
             rtcRead(&rtc);
             sprintf(bufferH, "%02d:%02d           ", rtc.hour, rtc.min);
-            HX711_tarro_Read(&data);
-            sprintf(bufferG, "%d gramos disp   ", (uint8_t)HX711_tarro_GetWeight(data)); // NOSE SI SE PUEDE CASTEAR ASI xd
+            //HX711_tarro_Read(&data);
+            //weight = HX711_tarro_GetWeight(data);
+            weight = 0;
+            sprintf(bufferG, "%d gramos disp   ", weight); // NOSE SI SE PUEDE CASTEAR ASI xd
             lcdGoToXY(1, 1);
             lcdSendStringRaw(bufferH); // Hora en formato HH:MM
             lcdGoToXY(1, 2);

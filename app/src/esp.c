@@ -58,9 +58,10 @@ uint8_t espReceiveData(char *buffer, int bufferSize)
             buffer[index++] = receivedByte;
             if (receivedByte == '*')
             {
-                buffer[index - 1] = '\0';
+               buffer[index - 1] = '\0';
                uartWriteString(UART_USB, buffer);
-                return true;
+               index = 0;
+               return true;
             }
         }
         else
