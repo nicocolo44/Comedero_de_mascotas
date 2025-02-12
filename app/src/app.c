@@ -29,7 +29,7 @@
 char buffer[BUFFER_SIZE];
 char hora[6];
 uint8_t gramosAServir;
-
+rtc_t rtc;
 volatile uint8_t SEND_TO_ESP_FLAG = 0;
 volatile uint8_t WHEIGH_PLATE_FLAG = 0;
 volatile uint8_t WHEIGH_BUCKET_FLAG = 0;
@@ -86,7 +86,7 @@ int main(void)
    
    gramosAServir = eepromReadGramos();
    eepromReadHora(hora);
-   
+   uint8_t horaRtc[6];
 
    while (TRUE)
    {
@@ -104,8 +104,10 @@ int main(void)
       }
       if(CHECK_TIME_FLAG){
          CHECK_TIME_FLAG = 0;
-         //leer la hora del RTC y comparar con la actual
-         if(0){
+         //leer la hora del RTC y comparar con la actual 
+         rtcRead(&rtc);
+         sprintf(horaRtc, "%02d:%02d", rtc.hour, rtc.min);
+         if((strcmp(horaRtc,hora)==0)){
             dar_comida();
          }
       }
@@ -113,6 +115,7 @@ int main(void)
       if (espReceiveData(buffer, BUFFER_SIZE))
       {
          procesarRespuesta(buffer);
+         
       }
       
       sentido=encoderRead(&botonEncoder);

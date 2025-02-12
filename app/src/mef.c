@@ -112,8 +112,9 @@ void mefUpdate(uint8_t sentido,uint8_t boton ,uint8_t cancelar){
       uint8_t bufferH[17];
       int32_t weight;
         case PRINCIPAL:
-            rtcRead(&rtc);
-            sprintf(bufferH, "%02d:%02d           ", rtc.hour, rtc.min);
+            //rtcRead(&rtc);
+            //sprintf(bufferH, "%02d:%02d           ", rtc.hour, rtc.min);
+            eepromReadHora(bufferH);
             //HX711_tarro_Read(&data);
             //weight = HX711_tarro_GetWeight(data);
             weight = 0;

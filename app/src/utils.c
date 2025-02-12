@@ -1,5 +1,5 @@
 #include "utils.h"
-
+#include "mef.h"
 #define TIMEOUT 1340 //APROXIMADAMENTE 40 SEGUNDOS
 #define PROG 1
 void dar_comida(){
@@ -80,6 +80,7 @@ void procesarRespuesta(char *data){
    uartWriteString(UART_USB, buffer);
    eepromWriteGramos(gramosAServir);
    eepromWriteHora(time);
+   mefUpdate(0,0,0);
 }
 
 void inicializarRtc(){
