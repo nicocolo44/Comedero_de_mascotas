@@ -76,7 +76,7 @@ int main(void)
    //Initialization
    eepromInit();
    espInit(115200);
-   motorInit(GPIO1,GPIO3,GPIO5,GPIO7);
+   motorInit(GPIO7,GPIO5,GPIO3,GPIO1);
    HX711_plato_Init(T_FIL1, T_COL2);
    HX711_tarro_Init(T_FIL3, T_FIL2);
    encoderInit(ENET_TXEN,GPIO2,GPIO4,3);

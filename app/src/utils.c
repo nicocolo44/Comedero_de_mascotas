@@ -1,6 +1,6 @@
 #include "utils.h"
 #include "mef.h"
-#define TIMEOUT 1340 //APROXIMADAMENTE 40 SEGUNDOS
+#define TIMEOUT 5000
 #define PROG 1
 
 
