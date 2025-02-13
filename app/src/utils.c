@@ -2,6 +2,8 @@
 #include "mef.h"
 #define TIMEOUT 1340 //APROXIMADAMENTE 40 SEGUNDOS
 #define PROG 1
+
+
 void dar_comida(){
    lcdGoToXY(1,2);
    lcdSendStringRaw("                ");
@@ -17,20 +19,19 @@ void dar_comida(){
    };
    lcdCreateChar(PROG,progreso);
    gpioWrite(LED2, HIGH);
-   float pesoADispensar = 690000;
+   uint8_t pesoADispensar = eepromReadGramos();
    int32_t lectura;
    int delayBuzzer = 0;
    uint8_t botonCancelar = 0;
    uint16_t time = 0;
-    //HX711_plato_Read(&lectura);
-    //float peso = HX711_plato_GetWeight(lectura);
+   int16_t peso = 0;
+   if(HX711_plato_Read(&lectura))
+      peso = HX711_plato_GetWeight(lectura);
    lcdGoToXY(1,2);
-   float peso = HX711_plato_GetWeight(lectura);
-   lectura = 0;
    int i;
    int j=1;
-   float barraProgreso = pesoADispensar/16;
-    while (pesoADispensar > lectura) {
+   uint8_t barraProgreso = pesoADispensar/16;
+    while (pesoADispensar > peso) {
         for (i = 0; i < 10; i++) {
             motorOn();
             delay(3);
@@ -44,7 +45,7 @@ void dar_comida(){
         }
         gpioWrite(LED1, HIGH);
         
-        if(lectura>(barraProgreso*j)){
+        if(peso>(barraProgreso*j)){
            lcdData(PROG);
            j++;
          }
@@ -54,9 +55,8 @@ void dar_comida(){
             Buzzer_Toggle();
             delayBuzzer = 0;
         }
-        //HX711_plato_Read(&lectura);
-        //peso = HX711_plato_GetWeight(lectura);
-        lectura += 1;
+        if(HX711_plato_Read(&lectura))
+         peso = HX711_plato_GetWeight(lectura);
     }
     Buzzer_Off();
     gpioWrite(LED2, LOW);

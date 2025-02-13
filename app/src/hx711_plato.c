@@ -2,11 +2,11 @@
 
 static uint8_t HX711_SCK_PIN;
 static uint8_t HX711_DOUT_PIN;
-static int32_t valor_base;
-static int32_t factor_de_conversion;
+static int32_t valor_base = 690361;
+static int32_t factor_de_conversion = 414;
 
 
-// Funci√≥n para inicializar los pines del HX711
+// FunciÛn para inicializar los pines del HX711
 void HX711_plato_Init(uint8_t sck_pin, uint8_t dout_pin) {
     HX711_SCK_PIN = sck_pin;
     HX711_DOUT_PIN = dout_pin;
@@ -14,11 +14,11 @@ void HX711_plato_Init(uint8_t sck_pin, uint8_t dout_pin) {
     gpioConfig(dout_pin, GPIO_INPUT);
 }
 
-// Funci√≥n para leer datos de 24 bits del HX711
+// FunciÛn para leer datos de 24 bits del HX711
 int8_t HX711_plato_Read(int32_t* data) {
     *data = 0;
 
-    // Asegurarse de que el HX711 est√° listo
+    // Asegurarse de que el HX711 est· listo
     if(gpioRead(HX711_DOUT_PIN)){
         return FALSE;
     }
@@ -47,15 +47,15 @@ int8_t HX711_plato_Read(int32_t* data) {
 }
 
 
-int32_t HX711_plato_GetWeight(int32_t lectura) {
-   return (int32_t)(lectura - valor_base) / factor_de_conversion;
+int16_t HX711_plato_GetWeight(int32_t lectura) {
+   return (lectura - valor_base) / factor_de_conversion;
 }
 
-void HX711_plato_Tare(int8_t muestras) {
+void HX711_plato_Tare(uint8_t muestras) {
     int32_t sumatoria = 0;
     int32_t lectura;
     for (int i = 0; i < muestras; i++) {
-        HX711_plato_Read(&lectura);
+        while(!HX711_plato_Read(&lectura));
         sumatoria += lectura;
     }
     valor_base = sumatoria / muestras;
@@ -66,5 +66,14 @@ int32_t HX711_plato_Calibrate(int32_t peso_conocido) {
     HX711_plato_Read(&lectura);
     factor_de_conversion = lectura - valor_base;
     factor_de_conversion /= peso_conocido;
+    return factor_de_conversion;
+}
+
+
+int32_t HX711_plato_GetValorBase(void) {
+    return valor_base;
+}
+
+int32_t HX711_plato_GetFactorConversion(void) {
     return factor_de_conversion;
 }

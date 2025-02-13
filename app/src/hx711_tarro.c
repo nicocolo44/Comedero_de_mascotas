@@ -2,8 +2,8 @@
 
 static uint8_t HX711_SCK_PIN;
 static uint8_t HX711_DOUT_PIN;
-static int32_t valor_base;
-static int32_t factor_de_conversion;
+static int32_t valor_base = -58209;
+static int32_t factor_de_conversion = 402;
 
 
 // Función para inicializar los pines del HX711
@@ -47,15 +47,15 @@ int8_t HX711_tarro_Read(int32_t* data) {
 }
 
 
-int32_t HX711_tarro_GetWeight(int32_t lectura) {
-   return (int32_t)(lectura - valor_base) / factor_de_conversion;
+int16_t HX711_tarro_GetWeight(int32_t data) {
+   return (int16_t)(data - valor_base) / factor_de_conversion;
 }
 
-void HX711_tarro_Tare(int8_t muestras) {
+void HX711_tarro_Tare(uint8_t muestras){
     int32_t sumatoria = 0;
     int32_t lectura;
     for (int i = 0; i < muestras; i++) {
-        HX711_tarro_Read(&lectura);
+        while(!HX711_tarro_Read(&lectura));
         sumatoria += lectura;
     }
     valor_base = sumatoria / muestras;
