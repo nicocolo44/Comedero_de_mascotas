@@ -84,6 +84,7 @@ int main(void)
    Buzzer_Init(T_FIL0);
    botonInit(ENET_RXD1,20);
    Timer_Init( 0, Timer_microsecondsToTicks( 1000000 ), timerCallback );
+   inicializarRtc();
    
    gramosAServir = eepromReadGramos();
    eepromReadHora(hora);
@@ -105,12 +106,13 @@ int main(void)
       }
       if(CHECK_TIME_FLAG){
          CHECK_TIME_FLAG = 0;
-         //leer la hora del RTC y comparar con la actual 
-         //rtcRead(&rtc);
-         //sprintf(horaRtc, "%02d:%02d", rtc.hour, rtc.min);
-         //if((strcmp(horaRtc,hora)==0)){
-            //dar_comida();
-         //}
+         rtcRead(&rtc);
+         eepromReadHora(hora);
+         sprintf(horaRtc, "%02d:%02d", rtc.hour, rtc.min);
+         uartWriteString(UART_USB, horaRtc);
+         if((strcmp(horaRtc,hora)==0)){
+            mefDarComida();
+         }
       }
       
       if (espReceiveData(buffer, BUFFER_SIZE))

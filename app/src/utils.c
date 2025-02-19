@@ -85,14 +85,26 @@ void procesarRespuesta(char *data){
 
 void inicializarRtc(){
    rtc_t rtc;
-   // Completar estructura RTC
-   rtc.year = 2025;
-   rtc.month = 2;
-   rtc.mday = 5;
-   rtc.wday = 0;//lo deje en 0 porque ni idea que es
-   rtc.hour = 14;
-   rtc.min = 00;
-   rtc.sec= 0;
+
+   // Extraer fecha de compilación (ejemplo: "Feb 13 2025")
+   char mesStr[4];
+   sscanf(__DATE__, "%s %d %d", mesStr, &rtc.mday, &rtc.year);
+
+   // Convertir el nombre del mes a número
+   const char* meses[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+   for (int i = 0; i < 12; i++) {
+       if (strcmp(mesStr, meses[i]) == 0) {
+           rtc.month = i + 1;
+           break;
+       }
+   }
+
+   // Extraer hora de compilación (ejemplo: "14:05:30")
+   sscanf(__TIME__, "%d:%d:%d", &rtc.hour, &rtc.min, &rtc.sec);
+
+   rtc.wday = 0; // Si necesitas el día de la semana, deberías calcularlo.
+
    rtcInit(&rtc);
-   rtcWrite( &rtc );   
+   rtcWrite(&rtc);
 }
