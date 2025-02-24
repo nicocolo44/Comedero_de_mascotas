@@ -2,8 +2,8 @@
 
 static uint8_t HX711_SCK_PIN;
 static uint8_t HX711_DOUT_PIN;
-static int32_t valor_base = -55545;
-static int32_t factor_de_conversion = 412;
+static int32_t valor_base = -64712;
+static int32_t factor_de_conversion = 400;
 
 
 // Función para inicializar los pines del HX711
